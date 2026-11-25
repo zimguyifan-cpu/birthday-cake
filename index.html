@@ -1,0 +1,800 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strawberry Pixel Birthday Cake</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #ffede3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 10px;
+}
+
+.scene {
+    position: relative;
+    width: min(581px, 96vw);
+}
+
+.cake {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+    animation: cakeFloat 4s ease-in-out infinite;
+}
+
+svg {
+    shape-rendering: crispEdges;
+}
+
+/* PIXEL ANIMATIONS */
+
+.flame {
+    transform-box: fill-box;
+    transform-origin: center bottom;
+    animation: flame 0.35s steps(2) infinite alternate;
+}
+
+@keyframes flame {
+    from { transform: scaleY(1) translateY(0); }
+    to { transform: scaleY(1.12) translateY(-2px); }
+}
+
+@keyframes cakeFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+.sparkle {
+    animation: sparkle 1.5s steps(3) infinite alternate;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+@keyframes sparkle {
+    from { opacity: .35; }
+    to { opacity: 1; }
+}
+
+.flame.out {
+    animation: extinguish .4s steps(4) forwards;
+}
+
+@keyframes extinguish {
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+/* BUTTON */
+
+.blow-button {
+    margin-top: 15px;
+    padding: 13px 24px;
+    background: #e8aaaa;
+    border: 4px solid #704b3d;
+    box-shadow: 5px 5px #704b3d;
+    color: #704b3d;
+    font: 14px monospace;
+    cursor: pointer;
+}
+
+.blow-button:hover {
+    background: #f2bcbc;
+}
+
+.message {
+    margin-top: 24px;
+    color: #ce7488;
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 1.8;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: .7s;
+}
+
+.message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media(max-width:480px) {
+    .message { font-size: 16px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    .cake, .flame, .sparkle {
+        animation: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<audio
+    id="yaySound"
+    src="Children-Yay-Sound-SnapYT.App mp3.mp3"
+    preload="auto">
+</audio>
+
+<div class="container">
+
+<div class="scene">
+
+<svg class="cake"
+     id="cake"
+     viewBox="0 0 581 434"
+     xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+    <pattern id="pixelGrid" width="10" height="10"
+             patternUnits="userSpaceOnUse">
+        <path d="M10 0H0V10"
+              fill="none"
+              stroke="#ffffff"
+              stroke-opacity=".09"
+              stroke-width="1"/>
+    </pattern>
+</defs>
+
+<!-- BACKGROUND SPARKLES -->
+
+<g fill="#d98e99" class="sparkle">
+    <rect x="85" y="31" width="8" height="8"/>
+    <rect x="46" y="71" width="8" height="8"/>
+    <rect x="71" y="94" width="21" height="8"/>
+    <rect x="78" y="87" width="8" height="22"/>
+    <rect x="110" y="62" width="8" height="8"/>
+    <rect x="115" y="53" width="8" height="8"/>
+    <rect x="124" y="62" width="8" height="8"/>
+    <rect x="115" y="70" width="8" height="8"/>
+
+    <rect x="447" y="61" width="8" height="8"/>
+    <rect x="452" y="55" width="8" height="8"/>
+    <rect x="459" y="61" width="8" height="8"/>
+    <rect x="452" y="69" width="8" height="8"/>
+
+    <rect x="405" y="47" width="7" height="7"/>
+    <rect x="457" y="110" width="8" height="8"/>
+    <rect x="108" y="124" width="7" height="7"/>
+    <rect x="128" y="156" width="7" height="7"/>
+</g>
+
+<!-- CANDLES: REAR ROW -->
+
+<g id="candles">
+
+    <!-- Candle 1 -->
+    <g>
+        <g class="flame">
+            <path d="M182 50H186V42H190V34H194V42H198V50H194V54H186V50Z"
+                  fill="#efa842"/>
+            <rect x="190" y="42" width="4" height="5"
+                  fill="#fff0a0"/>
+        </g>
+        <rect x="180" y="58" width="20" height="48"
+              fill="#704c3d"/>
+        <rect x="184" y="62" width="12" height="40"
+              fill="#a8cdb6"/>
+        <path d="M184 76L196 64 M184 94L196 82"
+              stroke="#fff1df" stroke-width="5"/>
+    </g>
+
+    <!-- Candle 2 -->
+    <g>
+        <g class="flame">
+            <path d="M221 50H225V42H229V34H233V42H237V50H233V54H225V50Z"
+                  fill="#efa842"/>
+            <rect x="229" y="42" width="4" height="5"
+                  fill="#fff0a0"/>
+        </g>
+        <rect x="219" y="58" width="20" height="48"
+              fill="#704c3d"/>
+        <rect x="223" y="62" width="12" height="40"
+              fill="#e8a3a3"/>
+        <path d="M223 76L235 64 M223 94L235 82"
+              stroke="#fff1df" stroke-width="5"/>
+    </g>
+
+    <!-- Candle 3 -->
+    <g>
+        <g class="flame">
+            <path d="M260 50H264V42H268V34H272V42H276V50H272V54H264V50Z"
+                  fill="#efa842"/>
+            <rect x="268" y="42" width="4" height="5"
+                  fill="#fff0a0"/>
+        </g>
+        <rect x="258" y="58" width="20" height="48"
+              fill="#704c3d"/>
+        <rect x="262" y="62" width="12" height="40"
+              fill="#a8cdb6"/>
+        <path d="M262 76L274 64 M262 94L274 82"
+              stroke="#fff1df" stroke-width="5"/>
+    </g>
+
+    <!-- Candle 4 -->
+    <g>
+        <g class="flame">
+            <path d="M299 50H303V42H307V34H311V42H315V50H311V54H303V50Z"
+                  fill="#efa842"/>
+            <rect x="307" y="42" width="4" height="5"
+                  fill="#fff0a0"/>
+        </g>
+        <rect x="297" y="58" width="20" height="48"
+              fill="#704c3d"/>
+        <rect x="301" y="62" width="12" height="40"
+              fill="#e8a3a3"/>
+        <path d="M301 76L313 64 M301 94L313 82"
+              stroke="#fff1df" stroke-width="5"/>
+    </g>
+
+    <!-- Candle 5 -->
+    <g>
+        <g class="flame">
+            <path d="M338 50H342V42H346V34H350V42H354V50H350V54H342V50Z"
+                  fill="#efa842"/>
+            <rect x="346" y="42" width="4" height="5"
+                  fill="#fff0a0"/>
+        </g>
+        <rect x="336" y="58" width="20" height="48"
+              fill="#704c3d"/>
+        <rect x="340" y="62" width="12" height="40"
+              fill="#a8cdb6"/>
+        <path d="M340 76L352 64 M340 94L352 82"
+              stroke="#fff1df" stroke-width="5"/>
+    </g>
+
+    <!-- Candle 6 -->
+    <g>
+        <g class="flame">
+            <path d="M377 50H381V42H385V34H389V42H393V50H389V54H381V50Z"
+                  fill="#efa842"/>
+            <rect x="385" y="42" width="4" height="5"
+                  fill="#fff0a0"/>
+        </g>
+        <rect x="375" y="58" width="20" height="48"
+              fill="#704c3d"/>
+        <rect x="379" y="62" width="12" height="40"
+              fill="#e8a3a3"/>
+        <path d="M379 76L391 64 M379 94L391 82"
+              stroke="#fff1df" stroke-width="5"/>
+    </g>
+
+</g>
+
+<!-- TOP FROSTING: IRREGULAR PIXEL SILHOUETTE -->
+
+<path d="
+M156 109
+H174 V100 H190 V94 H209 V101 H225
+V109 H247 V104 H267 V110 H287
+V105 H306 V111 H326 V105 H345
+V110 H365 V103 H383 V111 H402
+V119 H421 V126 H436 V142
+H450 V156 H434 V181
+H421 V193 H401 V202
+H382 V194 H365 V201
+H346 V191 H331 V199
+H310 V188 H294 V202
+H275 V191 H256 V205
+H238 V194 H220 V207
+H202 V193 H184 V203
+H167 V193 H149 V181
+H131 V164 H118 V145
+H128 V128 H142 V116
+H156 Z"
+fill="#704c3d"/>
+
+<!-- PINK TOP FROSTING -->
+
+<path d="
+M160 115
+H177 V106 H192 V101 H210 V107 H225
+V115 H247 V110 H267 V116 H287
+V111 H306 V117 H326 V111 H345
+V116 H365 V109 H383 V117
+H399 V125 H417 V132 H431 V143
+H444 V154 H430 V178
+H417 V189 H399 V196
+H383 V188 H366 V195
+H348 V185 H332 V193
+H312 V182 H296 V196
+H277 V185 H258 V199
+H240 V188 H222 V201
+H204 V187 H186 V197
+H170 V187 H153 V176
+H136 V161 H125 V145
+H135 V132 H149 V121
+H160 Z"
+fill="#e9b1b2"/>
+
+<!-- PIXEL FROSTING SHADOWS -->
+
+<g fill="#704c3d">
+    <path d="M177 186H191V198H177Z"/>
+    <path d="M221 190H237V205H221Z"/>
+    <path d="M265 189H281V203H265Z"/>
+    <path d="M309 184H324V199H309Z"/>
+    <path d="M365 185H380V198H365Z"/>
+</g>
+
+<!-- TOP FROSTING PIXEL SPECKLES -->
+
+<g fill="#d88f9b">
+    <rect x="153" y="130" width="8" height="8"/>
+    <rect x="188" y="166" width="7" height="7"/>
+    <rect x="226" y="150" width="7" height="7"/>
+    <rect x="256" y="174" width="8" height="8"/>
+    <rect x="285" y="136" width="8" height="8"/>
+    <rect x="315" y="177" width="8" height="8"/>
+    <rect x="355" y="149" width="7" height="7"/>
+    <rect x="385" y="171" width="8" height="8"/>
+    <rect x="410" y="142" width="7" height="7"/>
+    <rect x="128" y="155" width="7" height="7"/>
+</g>
+
+<!-- TOP CREAM FILLING -->
+
+<path d="
+M143 193
+H162 V202
+H179 V212
+H194 V203
+H208 V214
+H225 V224
+H244 V212
+H262 V220
+H280 V229
+H298 V215
+H315 V224
+H333 V215
+H349 V225
+H368 V211
+H386 V220
+H401 V206
+H419 V219
+H431 V252
+H416 V262
+H150 V251
+H135 V224
+H145 Z"
+fill="#fff3d5"/>
+
+<!-- CREAM LAYER SHADOW -->
+
+<path d="
+M146 246 H435 V262
+H419 V269 H151 V260 H139 Z"
+fill="#704c3d"/>
+
+<path d="
+M151 246 H429 V257
+H416 V264 H154 V256 H146 Z"
+fill="#fff3d5"/>
+
+<!-- MIDDLE CAKE OUTLINE -->
+
+<path d="
+M119 259
+H461 V268 H476 V288
+H457 V307 H449 V325
+H432 V337
+H413 V330 H395 V338
+H372 V330 H352 V340
+H330 V330 H310 V339
+H288 V328 H267 V340
+H245 V329 H226 V339
+H204 V328 H184 V337
+H164 V327 H143 V316
+H127 V299 H111 V282
+H121 V269 Z"
+fill="#704c3d"/>
+
+<!-- MIDDLE PINK FROSTING -->
+
+<path d="
+M126 266
+H455 V275 H469 V286
+H451 V302 H443 V319
+H428 V329 H409 V323
+H391 V330 H375 V323
+H354 V332 H334 V324
+H312 V331 H292 V322
+H272 V333 H250 V322
+H229 V331 H208 V320
+H187 V329 H167 V319
+H149 V310 H134 V294
+H120 V282 H130 V275 Z"
+fill="#e8b0b3"/>
+
+<!-- MIDDLE FROSTING PIXEL SPECKLES -->
+
+<g fill="#d9909d">
+    <rect x="138" y="287" width="7" height="7"/>
+    <rect x="200" y="303" width="7" height="7"/>
+    <rect x="272" y="310" width="8" height="8"/>
+    <rect x="336" y="292" width="7" height="7"/>
+    <rect x="401" y="303" width="8" height="8"/>
+    <rect x="450" y="282" width="7" height="7"/>
+</g>
+
+<!-- STRAWBERRIES ON TOP OF THE MIDDLE FROSTING -->
+
+<!-- OUTER LEFT STRAWBERRY -->
+
+<g id="berry1">
+    <path d="
+    M124 211 H145 V217 H156 V227
+    H165 V250 H157 V260
+    H145 V266 H129 V260
+    H118 V250 H114 V229
+    H120 V217 H124 Z"
+    fill="#704c3d"/>
+
+    <path d="M130 205 H147 V212 H130Z"
+          fill="#78945f"/>
+
+    <path d="
+    M125 219 H145 V225 H153 V249
+    H145 V256 H130 V250
+    H121 V229 H125Z"
+    fill="#e65b50"/>
+
+    <g fill="#ffe58b">
+        <rect x="130" y="228" width="7" height="7"/>
+        <rect x="145" y="239" width="7" height="7"/>
+        <rect x="129" y="249" width="7" height="7"/>
+    </g>
+</g>
+
+<!-- INNER LEFT STRAWBERRY -->
+
+<g id="berry2">
+    <path d="
+    M190 226 H210 V232 H222 V242
+    H232 V267 H224 V278
+    H210 V284 H194 V277
+    H181 V267 H176 V244
+    H183 V232 H190 Z"
+    fill="#704c3d"/>
+
+    <path d="M195 220 H213 V227 H195Z"
+          fill="#78945f"/>
+
+    <path d="
+    M190 234 H210 V240 H220 V265
+    H211 V274 H195 V267
+    H183 V244 H190Z"
+    fill="#e65b50"/>
+
+    <g fill="#ffe58b">
+        <rect x="194" y="244" width="7" height="7"/>
+        <rect x="211" y="252" width="7" height="7"/>
+        <rect x="195" y="266" width="7" height="7"/>
+    </g>
+</g>
+
+<!-- CENTER STRAWBERRY -->
+
+<g id="berry3">
+    <path d="
+    M264 226 H285 V232 H297 V242
+    H306 V267 H298 V278
+    H284 V284 H268 V277
+    H255 V267 H250 V244
+    H257 V232 H264 Z"
+    fill="#704c3d"/>
+
+    <path d="M269 220 H287 V227 H269Z"
+          fill="#78945f"/>
+
+    <path d="
+    M264 234 H284 V240 H294 V265
+    H285 V274 H269 V267
+    H257 V244 H264Z"
+    fill="#e65b50"/>
+
+    <g fill="#ffe58b">
+        <rect x="268" y="244" width="7" height="7"/>
+        <rect x="285" y="252" width="7" height="7"/>
+        <rect x="269" y="266" width="7" height="7"/>
+    </g>
+</g>
+
+<!-- INNER RIGHT STRAWBERRY -->
+
+<g id="berry4">
+    <path d="
+    M336 226 H357 V232 H369 V242
+    H378 V267 H370 V278
+    H356 V284 H340 V277
+    H327 V267 H322 V244
+    H329 V232 H336 Z"
+    fill="#704c3d"/>
+
+    <path d="M341 220 H359 V227 H341Z"
+          fill="#78945f"/>
+
+    <path d="
+    M336 234 H356 V240 H366 V265
+    H357 V274 H341 V267
+    H329 V244 H336Z"
+    fill="#e65b50"/>
+
+    <g fill="#ffe58b">
+        <rect x="340" y="244" width="7" height="7"/>
+        <rect x="357" y="252" width="7" height="7"/>
+        <rect x="341" y="266" width="7" height="7"/>
+    </g>
+</g>
+
+<!-- OUTER RIGHT STRAWBERRY -->
+
+<g id="berry5">
+    <path d="
+    M399 211 H420 V217 H431 V227
+    H440 V250 H432 V260
+    H420 V266 H404 V260
+    H393 V250 H389 V229
+    H396 V217 H399 Z"
+    fill="#704c3d"/>
+
+    <path d="M405 205 H422 V212 H405Z"
+          fill="#78945f"/>
+
+    <path d="
+    M400 219 H420 V225 H428 V249
+    H420 V256 H405 V250
+    H396 V229 H400Z"
+    fill="#e65b50"/>
+
+    <g fill="#ffe58b">
+        <rect x="405" y="228" width="7" height="7"/>
+        <rect x="420" y="239" width="7" height="7"/>
+        <rect x="405" y="249" width="7" height="7"/>
+    </g>
+</g>
+
+<!-- BOTTOM CREAM LAYER OUTLINE -->
+
+<path d="
+M137 324 H444 V337 H430 V351
+H416 V367 H395 V379
+H375 V389 H203 V379
+H183 V368 H161 V354
+H146 V340 H133 V328 Z"
+fill="#704c3d"/>
+
+<!-- BOTTOM CREAM -->
+
+<path d="
+M145 330 H436 V340
+H422 V354 H409 V365
+H390 V376 H374 V383
+H207 V375 H189 V365
+H168 V352 H153 V340
+H145 Z"
+fill="#fff2d6"/>
+
+<!-- LOWER CAKE OUTLINE -->
+
+<path d="
+M139 340 H444 V375
+H430 V390 H413 V407
+H394 V418 H192 V410
+H175 V400 H155 V385
+H139 V366 Z"
+fill="#704c3d"/>
+
+<!-- LOWER CAKE PINK BODY -->
+
+<path d="
+M147 347 H435 V371
+H422 V386 H407 V400
+H390 V411 H198 V403
+H181 V392 H162 V380
+H147 V366 Z"
+fill="#e9b1b2"/>
+
+<!-- STRAWBERRY DECORATION ON LOWER LAYER -->
+
+<g fill="#e76f65">
+
+    <path d="M169 376 H180 V369 H193 V379 H200 V402 H188 V411 H175 V402 H169Z"/>
+    <path d="M365 379 H378 V369 H390 V376 H401 V402 H390 V411 H375 V402 H365Z"/>
+
+    <rect x="218" y="394" width="15" height="20"/>
+    <rect x="232" y="400" width="15" height="14"/>
+    <rect x="268" y="400" width="16" height="14"/>
+    <rect x="283" y="394" width="15" height="20"/>
+    <rect x="319" y="400" width="16" height="14"/>
+    <rect x="334" y="394" width="15" height="20"/>
+
+</g>
+
+<!-- LIGHT CREAM SECTIONS ON LOWER DECORATION -->
+
+<g fill="#fff2d6">
+    <rect x="181" y="379" width="8" height="22"/>
+    <rect x="375" y="379" width="8" height="22"/>
+    <rect x="224" y="404" width="8" height="9"/>
+    <rect x="274" y="404" width="8" height="9"/>
+    <rect x="325" y="404" width="8" height="9"/>
+</g>
+
+<!-- BOTTOM BORDER -->
+
+<path d="
+M160 413 H421 V420 H404 V427
+H179 V420 H160 Z"
+fill="#704c3d"/>
+
+<path d="M183 417 H399 V421 H183Z"
+fill="#fff2d6"/>
+
+</svg>
+
+</div>
+
+<button class="blow-button" id="blowButton">
+    🎤 Blow the Candles!
+</button>
+
+<div class="message" id="message">
+    Happy Birthday! ♡
+    <br>
+    Make a wish! ✨
+</div>
+
+</div>
+
+<script>
+const button = document.getElementById("blowButton");
+const message = document.getElementById("message");
+const flames = document.querySelectorAll(".flame");
+
+let audioContext;
+let microphone;
+let analyser;
+let audioData;
+let animationFrame;
+let blowStart = null;
+let finished = false;
+
+button.addEventListener("click", async () => {
+
+    if (finished) return;
+
+    button.disabled = true;
+    button.textContent = "Requesting microphone...";
+
+    try {
+        microphone = await navigator.mediaDevices.getUserMedia({
+            audio: true
+        });
+
+        audioContext = new AudioContext();
+
+        if (audioContext.state === "suspended") {
+            await audioContext.resume();
+        }
+
+        const source =
+            audioContext.createMediaStreamSource(microphone);
+
+        analyser = audioContext.createAnalyser();
+        analyser.fftSize = 2048;
+
+        source.connect(analyser);
+
+        audioData = new Uint8Array(analyser.fftSize);
+
+        button.textContent = "🎤 Blow into your microphone!";
+
+        detectBlow();
+
+    } catch (error) {
+        console.error(error);
+        button.disabled = false;
+        button.textContent = "Try microphone again";
+        alert("Please allow microphone access.");
+    }
+});
+
+function detectBlow() {
+
+    if (finished) return;
+
+    analyser.getByteTimeDomainData(audioData);
+
+    let sum = 0;
+
+    for (let i = 0; i < audioData.length; i++) {
+        const sample = (audioData[i] - 128) / 128;
+        sum += sample * sample;
+    }
+
+    const volume = Math.sqrt(sum / audioData.length);
+
+    if (volume > 0.10) {
+
+        if (blowStart === null) {
+            blowStart = performance.now();
+        }
+
+        if (performance.now() - blowStart > 300) {
+            extinguishCandles();
+            return;
+        }
+
+    } else {
+        blowStart = null;
+    }
+
+    animationFrame = requestAnimationFrame(detectBlow);
+}
+
+function extinguishCandles() {
+
+    if (finished) return;
+
+    finished = true;
+
+    flames.forEach(flame => {
+        flame.classList.add("out");
+    });
+
+    if (microphone) {
+        microphone.getTracks().forEach(track => track.stop());
+    }
+
+    cancelAnimationFrame(animationFrame);
+
+    if (audioContext && audioContext.state !== "closed") {
+        audioContext.close();
+    }
+
+    // PLAY BIRTHDAY CELEBRATION SOUND
+    const yaySound = document.getElementById("yaySound");
+
+    yaySound.currentTime = 0;
+    yaySound.play().catch(error => {
+        console.log("Audio playback failed:", error);
+    });
+
+    button.textContent = "✨ Wish completed!";
+
+    setTimeout(() => {
+        message.classList.add("show");
+    }, 700);
+}
+</script>
+
+</body>
+</html>
